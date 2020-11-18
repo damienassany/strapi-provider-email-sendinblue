@@ -25,7 +25,7 @@ module.exports = {
         sendSmtpEmail.textContent = options.text;
         sendSmtpEmail.htmlContent = options.html;
         sendSmtpEmail.subject = options.subject;
-        sendSmtpEmail.replyTo = options.replyTo || settings.defaultReplyTo;
+        sendSmtpEmail.replyTo = { email: options.replyTo } || settings.defaultReplyTo;
         sendSmtpEmail.sender = options.sender || settings.defaultSender;
 
         apiInstance.sendTransacEmail(sendSmtpEmail).then(
