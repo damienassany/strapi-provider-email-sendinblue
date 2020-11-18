@@ -17,7 +17,7 @@ module.exports = ({ env }) => ({
       apiKey: env('SENDINBLUE_API_KEY'),
     },
     settings: {
-      defaultFrom: { email: 'DEFAULT EMAIL', name: 'DEFAULT NAME' },
+      defaultSender: { email: 'DEFAULT EMAIL', name: 'DEFAULT NAME' },
       defaultReplyTo: { email: 'DEFAULT EMAIL', name: 'DEFAULT NAME' },
     },
   },
