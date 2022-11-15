@@ -37,6 +37,26 @@ module.exports = {
           }
         );
       },
+      sendWithTemplate: async (options) => {
+        var apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+        var sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail(); // SendSmtpEmail | Values to send a transactional email
+
+        sendSmtpEmail.to = [{ email: options.to }];
+        sendSmtpEmail.subject = options.subject;
+        sendSmtpEmail.replyTo = options.replyTo ? { email: options.replyTo } : settings.defaultReplyTo;
+        sendSmtpEmail.sender = options.sender || settings.defaultSender;
+        sendSmtpEmail.params = options.params;
+        sendSmtpEmail.templateId = options.templateId;
+
+        apiInstance.sendTransacEmail(sendSmtpEmail).then(
+          function (data) {
+            console.log("API called successfully. Returned data: " + data);
+          },
+          function (error) {
+            console.error(error);
+          }
+        );
+      }
     };
   },
 };
